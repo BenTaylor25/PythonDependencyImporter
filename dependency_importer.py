@@ -1,3 +1,7 @@
+"""
+https://github.com/BenTaylor25/PythonDependencyImporter/blob/master/dependency_importer.py
+"""
+
 import os
 
 def dep_import(package_name):
