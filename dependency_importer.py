@@ -8,10 +8,19 @@ def dep_import(package_name):
             os.system(f"pip install {package_name}")
             globals()[package_name] = __import__(package_name)
         except:
-            raise Exception("Could not install package.")
+            raise Exception(f"Could not install package '{package_name}'.")
+
+def install_all(dependencies):
+    """
+    Call this function at the start of your program with a list of strings;
+    the names of all pip dependencies you need to use in your program.
+    This will make sure that they are all installed before preceding.
+    """
+
+    for d in dependencies:
+        dep_import(d)
 
 if __name__ == '__main__':
     colorama = None   # to hide IDE warning
     dep_import("colorama")
     print(colorama.init)
-    
